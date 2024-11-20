@@ -42,3 +42,15 @@ a{
 a:hover{
     background-color: #FAB946;
 }
+
+table {
+    border-collapse: collapse; /* Para fusionar los bordes */
+    border: 1px solid black;   /* Borde sólido y delgado */
+    width: 100%;              /* Ajusta el tamaño según tus necesidades */
+}
+
+table td, table th {
+    border: 1px solid black;   /* Borde sólido y delgado en las celdas */
+    text-align: center;       /* Centra el texto, opcional */
+    padding: 8px;             /* Espaciado dentro de las celdas */
+}

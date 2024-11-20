@@ -1,0 +1,48 @@
+<?php
+
+session_start();
+
+if (!isset($_SESSION["txtusername"])) {
+    header('Location: ' . get_UrlBase('index.php'));
+}
+
+require_once $_SERVER['DOCUMENT_ROOT'] . '/etc/config.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/models/conexion.php';
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    // Asignar los valores de los inputs
+    $tmpdatusername = $_POST["datusername"];
+    $tmpdatpassword = $_POST["datpassword"];
+    $tmpdatperfil = $_POST["datperfil"];
+
+    // Crear conexión y continuar
+    $conexion = new conexion($host, $namedb, $userdb, $passworddb);
+    $pdo = $conexion->obtenerConexion();
+
+    try {
+        $sentencia = $pdo->prepare("INSERT INTO usuarios (username, password, perfil) VALUES (?,?,?);");
+        $sentencia->execute([$tmpdatusername, $tmpdatpassword, $tmpdatperfil]);
+        echo "usuario registrado <br>";
+    } catch (PDOException $e) {
+        echo "Hubo un error....<br>";
+        echo $e->getMessage();
+    }
+
+    exit();
+}
+?>
+
+<form action="" method="POST">
+    <label for="datsername">Usuario</label>
+    <input type="text" name="datusername" id="datusername">
+
+    <label for="datpassword">Password</label>
+    <input type="password" name="datpassword" id="datpassword"><br>
+
+    <label for="datperfil">Perfil</label>
+    <input type="text" name="datperfil" id="datperfil">
+
+    <button type="submit">Registrar usuario</button>
+
+</form>

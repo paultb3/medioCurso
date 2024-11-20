@@ -1,10 +1,16 @@
+<?php
+  require_once $_SERVER['DOCUMENT_ROOT'].'/etc/config.php';
+  require_once $_SERVER['DOCUMENT_ROOT'].'/models/conexion.php';
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
-    <link rel="stylesheet" href="./views/css/styles.css" />
+    <link rel="stylesheet" href="<?php echo get_UrlBase('views/css/styles.css') ?>" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -29,20 +35,20 @@
                 $v_password = $_POST["txtpassword"];
             }
 
-            if(($v_username == "admin")&&($v_password == "12345")){
-                header('Location: http://127.0.0.1/mediocurso/views/dashboard.php');
+            if(($v_username == "admin")&&($v_password == "1234")){
                 $_SESSION["txtusername"] = $v_username;
                 $_SESSION["txtpassword"] = $v_password;
+                header('Location: '.get_views('dashboard.php'));
                //echo "dashboard";
             }else{
-                header('Location: http://127.0.0.1/mediocurso/controllers/claveequivocada.php');
+                header('Location:'.get_views('claveequivocada.php'));
               //echo "aaaa";
             }
 
         }
 
         if(isset($_SESSION["txtusername"])){
-            header('Location: http://127.0.0.1/mediocurso/views/dashboard.php');
+          header('Location:'.get_views('dashboard.php'));
         }
 
     ?>

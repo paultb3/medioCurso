@@ -1,3 +1,9 @@
+<?php
+  require_once $_SERVER['DOCUMENT_ROOT'].'/etc/config.php';
+  require_once $_SERVER['DOCUMENT_ROOT'].'/models/conexion.php';
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +15,7 @@
 <body>
     <div class="container">
         <h1>Clave incorrecta, vuelva a ingresar !</h1>
-        <a href="http://127.0.0.1/mediocurso/index.php">volver</a>
+        <a href="<?php echo get_UrlBase('index.php') ?>">volver</a>
     </div>
 
 </body>

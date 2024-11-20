@@ -1,18 +1,24 @@
 <?php
+
+require_once $_SERVER['DOCUMENT_ROOT'] . '/etc/config.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/models/conexion.php';
+
 session_start();
 ?>
 <!DOCTYPE html>
 <html>
+
 <body>
 
-<?php
+    <?php
 
-session_unset();
-session_destroy();
+    session_unset();
+    session_destroy();
 
-header('Location: http://127.0.0.1/mediocurso/index.php');
+    header('Location: ' .get_UrlBase('index.php'));
 
-?>
+    ?>
 
 </body>
+
 </html>
