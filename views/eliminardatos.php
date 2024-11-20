@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         try {
             $sentencia = $pdo->prepare("delete from usuarios where username=?;");
             $sentencia->execute([$tmpdatusername]);
-            echo $tmpdatusername."Fue eliminado con exito";
+            echo $tmpdatusername." Fue eliminado con exito";
         } catch (PDOException $e) {
             echo "Hubo un error no se pudo eliminar....<br>";
             echo $e->getMessage();
