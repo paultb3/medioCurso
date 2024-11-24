@@ -1,64 +1,127 @@
-*{
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+* {
     margin: 0;
     padding: 0;
-}
-
-body{
-    background-color: #B0E4F4;
-}
-
-header{
-    display: flex;
-    position:sticky;
-    top: 0;
-    justify-content: space-between;
-    align-items: center;
-    background-color: white;
-    flex: 0 0 auto;
-    max-height: 45px;
-}
-iframe {
+    outline: none;
     border: none;
-    flex: 1 1 auto; /* El iframe ocupa todo el espacio restante */
-    width: 100%;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
 }
 
-.titulo{
-
-    margin-left: 30px;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+body {
+    background-color: #B0E4F4;
+    
 }
 
-ul{
+
+nav {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    background: #fff;
+    width: 90px;
+    overflow: hidden;
+    transition: width 0.2s linear;
+    box-shadow: 0 20px 35px rgba(0,0,0,0.1);
+}
+
+.logo{
+    text-align: center;
     display: flex;
-    margin-right: 50px;
+    transition: all 0.5s ease;
+    margin: 10px 0 0 10px;
 }
 
-li{
-    list-style: none;
-    margin: 20px 13px;
+.logo img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    padding: 0;
+    margin: 0;
+}
+
+.logo span {
+    font-weight: bold;
+    padding-left: 20px;
+    font-size: 18px;
+    text-transform: uppercase;
 }
 
 a{
-    text-decoration: none;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: black;
-    padding: 6px;
-    border-radius: 10px;
+    position: relative;
+    color: rgb(85,83,83);
+    font-size: 14px;
+    display: table;
+    width: 300px;
+    padding: 15px;
+}
+
+.fas {
+    position: relative;
+    width: 70px;
+    height: 40px;
+    top: 14px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.nav-item {
+    position: relative;
+    top: 12px;
+    margin-left: 5px;
 }
 
 a:hover{
-    background-color: #FAB946;
+    background: #eeee;
 }
 
-table {
-    border-collapse: collapse; /* Para fusionar los bordes */
-    border: 1px solid black;   /* Borde sólido y delgado */
-    width: 100%;              /* Ajusta el tamaño según tus necesidades */
+nav:hover{
+    width: 250px;
+    transition: all 0.5s ease;
 }
 
-table td, table th {
-    border: 1px solid black;   /* Borde sólido y delgado en las celdas */
-    text-align: center;       /* Centra el texto, opcional */
-    padding: 8px;             /* Espaciado dentro de las celdas */
+.logout{
+    position: absolute;
+    bottom: 0;
 }
+
+
+iframe {
+    position: absolute;
+    top: 0;
+    left: 90px; /* Ajuste dinámico según el ancho del nav */
+    width: calc(100% - 90px); /* Resta el ancho inicial del nav */
+    height: 100vh; /* Ocupa toda la altura */
+    border: none;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    transition: all 0.5s ease; /* Transición suave */
+}
+
+nav:hover + iframe {
+    left: 250px; /* Ajuste dinámico cuando el nav está expandido */
+    width: calc(100% - 250px); /* Resta el ancho expandido del nav */
+}
+/* Estilos específicos para cada iframe */
+.iframe-ver {
+    background-color: #d0f0c0; /* Verde claro */
+}
+
+.iframe-ingresar {
+    background-color: #f0d0c0; /* Beige claro */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.iframe-modificar {
+    background-color: #c0d0f0; /* Azul claro */
+}
+
+.iframe-eliminar {
+    background-color: #f0c0c0; /* Rojo claro */
+}
+

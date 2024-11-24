@@ -1,0 +1,42 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+body{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.tabla {
+    width: 80%;
+    margin: 50px auto;
+    border-collapse: collapse;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+.tabla th, .tabla td {
+    padding: 10px 15px;
+    text-align: center;
+    border: 20px;
+}
+.tabla th {
+    background-color: #007BFF;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-family: "Poppins", sans-serif;
+}
+.tabla tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+.tabla tr:hover {
+    background-color: #e9ecef;
+}
+.tabla td {
+    border-bottom: 1px solid #ddd;
+}
+.tabla th:first-child, .tabla td:first-child {
+    text-align: center;
+}
+.tabla {
+    border: 1px solid #ddd;
+}

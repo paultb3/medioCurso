@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $tmpdatperfil = $_POST["datperfil"];
 
     // Crear conexión y continuar
-    $conexion = new conexion($host, $namedb, $userdb, $passworddb);
+    $conexion = new Conexion(DB_HOST, DB_NAME, DB_USER, DB_PASS);
     $pdo = $conexion->obtenerConexion();
 
     try {
@@ -33,16 +33,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-<form action="" method="POST">
-    <label for="datsername">Usuario</label>
-    <input type="text" name="datusername" id="datusername">
+<head>
+    <link rel="stylesheet" href="../views/css/ingresardatos.css">
+</head>
 
-    <label for="datpassword">Password</label>
-    <input type="password" name="datpassword" id="datpassword"><br>
 
-    <label for="datperfil">Perfil</label>
-    <input type="text" name="datperfil" id="datperfil">
+<body>
+    <form action="" method="POST">
+        <label for="datsername">Usuario</label>
+        <input type="text" name="datusername" id="datusername">
 
-    <button type="submit">Registrar usuario</button>
+        <label for="datpassword">Password</label>
+        <input type="password" name="datpassword" id="datpassword">
 
-</form>
+        <label for="datperfil">Perfil</label>
+        <input type="text" name="datperfil" id="datperfil">
+
+        <button type="submit">Registrar usuario</button>
+
+    </form>
+</body>

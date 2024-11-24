@@ -1,48 +1,54 @@
 <?php
 
 
-    require_once $_SERVER['DOCUMENT_ROOT'].'/etc/config.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/etc/config.php';
 
-    class conexion{
-        private $host;
-        private $namedb;
-        private $userdb;
-        private $passworddb;
-        private $charset;
+class conexion
+{
+    private $host;
+    private $namedb;
+    private $userdb;
+    private $passworddb;
+    private $charset;
+    private static $pdo = null;
 
-        private $pdo;
+    public function __construct()
+    {
+        $this->host = DB_HOST;
+        $this->namedb = DB_NAME;
+        $this->userdb = DB_USER;
+        $this->passworddb = DB_PASS;
+        $this->charset = 'utf8';
 
-        public function __construct($host,$namedb,$userdb,$passworddb,$charset = 'utf8'){
-            $this->host = $host;
-            $this->namedb=$namedb;
-            $this->userdb=$userdb;
-            $this->passworddb=$passworddb;
-            $this->charset=$charset;
+        if (self::$pdo == null) {
             $this->conectar();
-        }
-
-        public function conectar(){
-            $dsn = "mysql:host={$this->host};dbname={$this->namedb};charset={$this->charset}";
-
-            try{
-                $this->pdo = new PDO($dsn, $this->userdb,$this->passworddb);
-                $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            } catch(PDOException $e) {
-                die('Hubo un error'.$e->getMessage());
-            }
-        }
-
-        public function obtenerConexion(){
-            return $this->pdo;
-        }
-
-        public function contesta(){
-            $dsn = "mysql:host={$this->host};dbname={$this->namedb};charset={$this->charset}";
-            return $dsn;
-            
-            //return $this->host.'|'.$this->namedb.'|'.$this->userdb.'|';
         }
     }
 
-  
-?>
+    private function conectar()
+    {
+        $dsn = "mysql:host={$this->host};dbname={$this->namedb};charset={$this->charset}";
+
+        try {
+            self::$pdo = new PDO($dsn, $this->userdb, $this->passworddb);
+            self::$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        } catch (PDOException $e) {
+            die('Hubo un error' . $e->getMessage());
+        }
+    }
+
+    public static function obtenerConexion()
+    {
+        if (self::$pdo == null) {
+            new self;
+        }
+
+        return self::$pdo;
+    }
+
+    public function contesta()
+    {
+        $dsn = "mysql:host={$this->host};dbname={$this->namedb};charset={$this->charset}";
+        return $dsn;
+    }
+}
