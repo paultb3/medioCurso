@@ -69,7 +69,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/etc/config.php';
                     echo "<iframe class='iframe-ver' src='" . get_controllers("controladorUsuario.php") . "'></iframe>";
                     break;
                 case 'ingresar':
-                    echo "<iframe class='iframe-ingresar' src='" . get_views("ingresardatos.php") . "'></iframe>";
+                    echo "<iframe class='iframe-ingresar' src='" . get_controllers("controladorIngresarUsuario.php") . "'></iframe>";
                     break;
                 case 'modificar':
                     echo "<iframe class='iframe-modificar' src='" . get_views("modificardatos.php") . "'></iframe>";
