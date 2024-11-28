@@ -53,7 +53,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/models/conexion.php';
   ?>
 
   <div class="wrapper">
-    <form action="" method="POST" autocomplete="off">
+    <form action="" method="POST">
       <h1>login</h1>
       <div class="input-box">
         <input
@@ -61,7 +61,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/models/conexion.php';
           placeholder="ingrese el nombre del usuario"
           name="txtusername"
           id="txtusername"
-          autocomplete="new-username" />
+          autocomplete="off" />
         <i class="bx bxs-user"></i>
       </div>
       <div class="input-box">
@@ -70,7 +70,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/models/conexion.php';
           placeholder="ingrese su contraseña"
           name="txtpassword"
           id="txtpassword"
-          autocomplete="new-password" />
+          autocomplete="off" />
         <i class="bx bxs-lock-alt"></i>
       </div>
 

@@ -18,79 +18,92 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/etc/config.php';
     <title>Deal</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="<?php echo get_UrlBase('views/css/dashboard.css') ?>?v=<?php echo time(); ?>">
-
 </head>
 
 <body>
     <nav id="sidebar">
         <ul>
-            <li><a href="#" class="logo">
+            <li><a href="#" class="logo" data-option="inicio">
                     <img src="../views/img/icono7.jpg" alt="icono de la empresa">
                     <span class="nav-item">company</span>
                 </a></li>
 
-            <li><a href="?option=inicio"><i>
-                        <i class="fas fa-home nav-item"></i>
-                        <span class="nav-item">Inicio</span>
+            <li><a href="?option=inicio" data-option="inicio">
+                    <i class="fas fa-home"></i>
+                    <span class="nav-item">Inicio</span>
                 </a></li>
-            <li><a href="?option=ver">
-                    <i class="fas fa-eye nav-item"></i>
-                    <span class="nav-item">ver</span>
+            <li><a href="?option=ver" data-option="ver">
+                    <i class="fas fa-eye"></i>
+                    <span class="nav-item">Ver</span>
                 </a></li>
-            <li><a href="?option=ingresar">
-                    <i class="fas fa-plus-circle nav-item"></i>
-                    <span class="nav-item">ingresar</span>
+            <li><a href="?option=ingresar" data-option="ingresar">
+                    <i class="fas fa-plus-circle"></i>
+                    <span class="nav-item">Ingresar</span>
                 </a>
             </li>
-            <li><a href="?option=modificar">
-                    <i class="fas fa-edit nav-item"></i>
-                    <span class="nav-item">modificar</span>
+            <li><a href="?option=modificar" data-option="modificar">
+                    <i class="fas fa-edit"></i>
+                    <span class="nav-item">Modificar</span>
                 </a></li>
-            <li><a href="?option=eliminar">
-                    <i class="fas fa-trash nav-item"></i>
-                    <span class="nav-item">eliminar</span>
+            <li><a href="?option=eliminar" data-option="eliminar">
+                    <i class="fas fa-trash"></i>
+                    <span class="nav-item">Eliminar</span>
                 </a></li>
-            <li><a href="<?php echo get_controllers('logout.php') ?> " class="logout">
-                    <i class="fas fa-sign-out-alt nav-item"></i>
-                    <span class="nav-item">salir</span>
+            <li><a href="<?php echo get_controllers('logout.php') ?>" class="logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span class="nav-item">Salir</span>
                 </a></li>
         </ul>
     </nav>
 
-    <div>
-        <?php
-        if (isset($_GET["option"])) {
-            $opcion = $_GET["option"];
-            switch ($opcion) {
-                case 'inicio':
-                    echo "<h1>Bienvenidos al sistema</h1>";
-                    break;
-                case 'ver':
-                    echo "<iframe class='iframe-ver' src='" . get_controllers("controladorUsuario.php") . "'></iframe>";
-                    break;
-                case 'ingresar':
-                    echo "<iframe class='iframe-ingresar' src='" . get_controllers("controladorIngresarUsuario.php") . "'></iframe>";
-                    break;
-                case 'modificar':
-                    echo "<iframe class='iframe-modificar' src='" . get_views("modificardatos.php") . "'></iframe>";
-                    break;
-                case 'eliminar':
-                    echo "<iframe class='iframe-eliminar' src='" . get_views("eliminardatos.php") . "'></iframe>";
-                    break;
-            }
-        }
-        ?>
-    </div>
+    <iframe src=""></iframe>
+
+    <script>
+        // Obtener elementos del menú y el iframe
+        const menuItems = document.querySelectorAll('#sidebar ul li a');
+        const iframe = document.querySelector('iframe');
+
+        // Función para manejar cambios en el iframe
+        menuItems.forEach(item => {
+            item.addEventListener('click', (e) => {
+                if (item.classList.contains('logout')) {
+                    return; // No aplicar la lógica de redirección para logout
+                }
+
+                e.preventDefault();
+                const option = item.dataset.option;
+
+
+                menuItems.forEach(i => i.classList.remove('active'));
+
+
+                item.classList.add('active');
+
+                switch (option) {
+                    case 'inicio':
+                        iframe.src = '<?php echo get_controllers("controladorInicio.php"); ?>'; // URL para la opción inicio
+                        break;
+
+                    case 'ver':
+                        iframe.className = "iframe-ver";
+                        iframe.src = '<?php echo get_controllers("controladorUsuario.php"); ?>';
+                        break;
+                    case 'ingresar':
+                        iframe.className = "iframe-ingresar";
+                        iframe.src = '<?php echo get_controllers("controladorIngresarUsuario.php"); ?>';
+                        break;
+                    case 'modificar':
+                        iframe.className = "iframe-modificar";
+                        iframe.src = '<?php echo get_controllers("controladorActualizarUsuario.php"); ?>';
+                        break;
+                    case 'eliminar':
+                        iframe.className = "iframe-eliminar ";
+                        iframe.src = '<?php echo get_controllers("controladorEliminarUsuario.php"); ?>';
+                        break;
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
-
-<!--<span><i class='bx bx-menu'></i></span>
-        <ul>
-            <li><a href="?option=inicio"> Inicio</a></li>
-            <li><a href="?option=ver">ver</a></li>
-            <li><a href="?option=ingresar">ingresar</a></li>
-            <li><a href="?option=modificar">modificar</a></li>
-            <li><a href="?option=eliminar">eliminar</a></li>
-            <li><a href="<?php echo get_controllers('logout.php') ?>">salir</a></li>
-        </ul>-->

@@ -1,33 +1,28 @@
 <?php
-function mostrarUsuario($usuarios)
+function mostrarFormularioIngreso($mensaje)
 {
-
+    if (empty($mensaje)) {
 ?>
 
-    <table class="tabla" border="1 ">
-        <tr>
-            <th>id</th>
-            <th>username</th>
-            <th>password</th>
-            <th>perfil</th>
-        </tr>
-        <?php
-        foreach ($usuarios as $usuario) {
-        ?>
-            <tr>
-                <td><?php echo $usuario['id'] ?></td>
-                <td><?php echo $usuario['username'] ?></td>
-                <td><?php echo $usuario['password'] ?></td>
-                <td><?php echo $usuario['perfil'] ?></td>
-            </tr>
-        <?php
-        }
-        ?>
-    </table>
+        <head>
+            <link rel="stylesheet" href="<?php echo get_UrlBase('views/css/formulario.css') ?>?v=<?php echo time(); ?>">
+        </head>
+        <form class="form-ingresar" action="/controllers/controladorIngresarUsuario.php" method="POST">
+            <label for="datusername">Usuario</label>
+            <input autocomplete="off" type="text" name="datusername" id="datusername" required><br>
+
+            <label for="datpassword">Password</label>
+            <input autocomplete="off" type="password" name="datpassword" id="datpassword" required><br>
+
+            <label for="datperfil">Perfil</label>
+            <input autocomplete="off" type="text" name="datperfil" id="datperfil" required>
+
+            <button type="submit" class="btn-registrar">Registrar usuario</button>
+        </form>
+
 <?php
+    } else {
+        echo $mensaje;
+    }
 }
 ?>
-
-<head>
-    <link rel="stylesheet" href="../views/css/verdatos.css">
-</head>

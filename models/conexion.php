@@ -3,7 +3,7 @@
 
 require_once $_SERVER['DOCUMENT_ROOT'] . '/etc/config.php';
 
-class conexion
+class Conexion
 {
     private $host;
     private $namedb;

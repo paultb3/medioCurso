@@ -3,7 +3,6 @@ body {
     justify-content: center;
     height: 100vh;
     margin: 0;
-    background-color: #f0d0c0; /* Color de fondo suave */
     font-family: Arial, sans-serif;
 }
 
@@ -14,7 +13,6 @@ form {
     border-radius: 8px; /* Bordes redondeados */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para efecto elegante */
     width: 300px; /* Ancho del formulario */
-    height: 320px;
     box-sizing: border-box;
 }
 
@@ -45,6 +43,37 @@ form button {
     cursor: pointer;
 }
 
-form button:hover {
-    background-color: #0056b3; /* Color más oscuro al pasar el mouse */
+
+.form-ingresar{
+    height: 320px;
+}
+
+.btn-registrar{
+    background-color:#3CB371 ;
+}
+.btn-registrar:hover{
+    background-color: #2E8B57;
+}
+
+.form-eliminar{
+    height: 150px;
+}
+
+.btn-eliminar{
+    text-align: center;
+    background-color: #FF0000;
+}
+.btn-eliminar:hover{
+    background-color: #FF4D4D; /* Rojo más claro */
+
+}
+
+.form-buscar{
+    height: 150px;
+}
+.btn-buscar:hover{
+ background-color:#357ABD;
+}
+.form-actualizar{
+    height: 330px;
 }

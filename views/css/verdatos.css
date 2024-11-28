@@ -40,3 +40,28 @@ body{
 .tabla {
     border: 1px solid #ddd;
 }
+.btn{
+    font-size: 12px;
+    background-color: #FF4D4D;
+    text-decoration: none;
+    border-radius: 12px;
+    color: white;
+    padding: 8px;
+    font-family: "Poppins", sans-serif;
+}
+.eliminar{
+    background-color: #FF4D4D;
+    color: white;
+}
+.eliminar:hover{
+ background-color: #FF0000;;
+}
+
+
+.editar{
+    background-color: #5DADE2;
+    color: white;
+}
+.editar:hover{
+    background-color: #3498DB;
+}

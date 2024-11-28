@@ -33,10 +33,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-<head>
-    <link rel="stylesheet" href="../views/css/ingresardatos.css">
-</head>
-
 
 <body>
     <form action="" method="POST">
