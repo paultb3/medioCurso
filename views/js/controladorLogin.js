@@ -38,6 +38,6 @@ loginForm.addEventListener('submit', async function (event) {
         }
     } catch (error) {
         console.error(error);
-        output.textContent = 'Hubo un problema con la conexión. Inténtalo nuevamente.';
+        output.textContent = 'Hubo un problema con las credenciales. Inténtalo nuevamente.';
     }
 });
