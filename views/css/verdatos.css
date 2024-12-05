@@ -1,9 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
 body{
+    display: flex;
+    justify-content: center;
+    height: 100vh;
     margin: 0;
-    padding: 0;
-    text-align: center;
+    font-family: Arial, sans-serif;
 }
 
 .tabla {
@@ -41,12 +43,14 @@ body{
     border: 1px solid #ddd;
 }
 .btn{
+    width: 70px;
+    height: 20px;
     font-size: 12px;
     background-color: #FF4D4D;
     text-decoration: none;
-    border-radius: 12px;
+    border-radius: 8px;
     color: white;
-    padding: 8px;
+    padding: 12px;
     font-family: "Poppins", sans-serif;
 }
 .eliminar{

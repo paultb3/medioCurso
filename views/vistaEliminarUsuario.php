@@ -12,7 +12,7 @@ function mostrarFormularioEliminar($mensaje = '')
 ?>
 
 
-        <form class="form-eliminar" action="/controllers/controladorEliminarUsuario.php" method="POST">
+        <form class="form-eliminar " action="/controllers/controladorEliminarUsuario.php" method="POST">
             <label for="datusername">A quien debo eliminar?</label>
             <input autocomplete="off" type="text" name="datusername" id="datusername" autocomplete="off">
             <br>

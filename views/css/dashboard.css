@@ -87,38 +87,3 @@ nav:hover {
     bottom: 0;
 }
 
-iframe {
-    position: absolute;
-    top: 0;
-    left: 90px; /* Ajuste dinámico según el ancho del nav */
-    width: calc(100% - 90px); /* Resta el ancho inicial del nav */
-    height: 100vh; /* Ocupa toda la altura */
-    border: none;
-    background-color: #f9f9f9;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
-    transition: all 0.5s ease; /* Transición suave */
-}
-
-nav:hover + iframe {
-    left: 250px; /* Ajuste dinámico cuando el nav está expandido */
-    width: calc(100% - 250px); /* Resta el ancho expandido del nav */
-}
-
-/* Estilos específicos para cada iframe */
-.iframe-ver {
-    background-color: #d0f0c0; /* Verde claro */
-}
-
-.iframe-ingresar {
-    background-color: #f0d0c0; /* Beige claro */
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.iframe-modificar {
-    background-color: #c0d0f0; /* Azul claro */
-}
-
-.iframe-eliminar {
-    background-color: #f0c0c0; /* Rojo claro */
-}

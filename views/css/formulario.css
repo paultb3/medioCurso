@@ -4,11 +4,12 @@ body {
     height: 100vh;
     margin: 0;
     font-family: Arial, sans-serif;
+;
 }
 
 form {
     margin-top: 130px;
-    background-color: #fff; /* Fondo blanco del formulario */
+    background-color: #FFA07A; /* Fondo blanco del formulario */
     padding: 20px;
     border-radius: 8px; /* Bordes redondeados */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para efecto elegante */
@@ -45,7 +46,8 @@ form button {
 
 
 .form-ingresar{
-    height: 320px;
+    height: 350px;
+    background-color: #FFDAB9	;
 }
 
 .btn-registrar{
@@ -56,7 +58,8 @@ form button {
 }
 
 .form-eliminar{
-    height: 150px;
+    height: 170px;
+    background-color: #FFE4E1;
 }
 
 .btn-eliminar{
@@ -69,7 +72,8 @@ form button {
 }
 
 .form-buscar{
-    height: 150px;
+    height: 170px;
+    background-color: #F5F5F5;
 }
 .btn-buscar:hover{
  background-color:#357ABD;

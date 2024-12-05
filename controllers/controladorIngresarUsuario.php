@@ -1,6 +1,8 @@
 <?php
 
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 
 require_once $_SERVER['DOCUMENT_ROOT'] . '/views/vistaIngresarUsuario.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/models/modeloUsuario.php';
@@ -12,7 +14,7 @@ if (!isset($_SESSION["txtusername"])) {
 $mensaje = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Asignar los valores de los inputs
+    // Obtener los valores del formulario
     $tmpdatusername = trim($_POST["datusername"]);
     $tmpdatpassword = trim($_POST["datpassword"]);
     $tmpdatperfil = trim($_POST["datperfil"]);
@@ -24,8 +26,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $modeloUsuario = new modeloUsuario();
 
         try {
-            $modeloUsuario->insertarUsuario($tmpdatusername, $tmpdatpassword, $tmpdatperfil);
-            $mensaje = "Usuario registrado con éxito";
+            // Llamar al método insertarUsuario
+            $resultado = $modeloUsuario->insertarUsuario($tmpdatusername, $tmpdatpassword, $tmpdatperfil);
+
+            if ($resultado === "El usuario ya existe.") {
+                $mensaje = "El usuario ya existe. Por favor, intente con un nombre de usuario diferente.";
+            } else {
+                $mensaje = "Usuario registrado con éxito.";
+            }
         } catch (PDOException $e) {
             $mensaje = "Hubo un error ...<br>" . $e->getMessage();
         }
